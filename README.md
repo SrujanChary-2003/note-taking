@@ -142,10 +142,6 @@ POST /api/auth/signup
 
 POST /api/auth/login
 
-GET /api/auth/get-user-by-email?email=
-
-POST /api/auth/google
-
 Notes:
 GET /api/notes/
 
@@ -158,11 +154,15 @@ All note routes require JWT authorization.
 📸 Screenshots
 
 Signup screen
+![alt text](image.png)
+
+Signin screen
+![alt text](image-1.png)
 
 Dashboard with notes
-
-Google sign-in
+![alt text](image-2.png)
 
 Mobile version
+![alt text](image-3.png)
 
 </pre>
