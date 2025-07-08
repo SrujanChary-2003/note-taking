@@ -150,19 +150,18 @@ POST /api/notes/
 DELETE /api/notes/:id
 
 All note routes require JWT authorization.
+</pre>
 
 📸 Screenshots
 
 Signup screen
-![alt text](image.png)
+(image.png)
 
 Signin screen
-![alt text](image-1.png)
+(image-1.png)
 
 Dashboard with notes
-![alt text](image-2.png)
+(image-2.png)
 
 Mobile version
-![alt text](image-3.png)
-
-</pre>
+(image-3.png)
