@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import sideimage from "../../assets/image.png";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ interface FormValues {
   email: string;
   otp: string;
 }
-
+const BASEURL = import.meta.env.VITE_BACKEND_URL;
 const Signup = () => {
   const [otpSent, setOtpSent] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Signup = () => {
   const onGetOtp = async (data: FormValues) => {
     setIsLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/request-otp", {
+      await axios.post(`${BASEURL}/auth/request-otp`, {
         name: data.name,
         dob: data.dob,
         email: data.email,
@@ -45,11 +45,9 @@ const Signup = () => {
   const onSignup = async (data: FormValues) => {
     setIsLoading(true);
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        data,
-        { withCredentials: true }
-      );
+      const res = await axios.post(`${BASEURL}/auth/signup`, data, {
+        withCredentials: true,
+      });
       localStorage.setItem("user", JSON.stringify(res.data.user));
       alert("Signup successful");
       navigate("/dashboard");

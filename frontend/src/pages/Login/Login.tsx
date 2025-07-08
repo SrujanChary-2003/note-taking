@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import NavBar from "../../components/NavBar";
 import sideimage from "../../assets/image.png";
@@ -11,7 +11,7 @@ type FormValues = {
   otp: string;
   keepLoggedIn: boolean;
 };
-
+const BASEURL = import.meta.env.VITE_BACKEND_URL;
 const Login = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +26,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        `${BASEURL}/auth/signup`,
         {
           email: data.email,
           otp: data.otp,
@@ -54,12 +54,12 @@ const Login = () => {
     setIsLoading(true);
     try {
       const userRes = await axios.get(
-        `http://localhost:5000/api/auth/get-user-by-email?email=${email}`
+        `${BASEURL}/auth/get-user-by-email?email=${email}`
       );
       const { name, dob } = userRes.data.user;
 
       await axios.post(
-        "http://localhost:5000/api/auth/request-otp",
+        `${BASEURL}/auth/request-otp`,
         { email, name, dob },
         { withCredentials: true }
       );

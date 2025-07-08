@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../../assets/logo.svg";
@@ -13,6 +13,7 @@ interface Note {
   _id: string;
   content: string;
 }
+const BASEURL = import.meta.env.VITE_BACKEND_URL;
 
 const Home: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notes", {
+      const res = await axios.get(`${BASEURL}/notes`, {
         withCredentials: true,
       });
       setNotes(res.data);
@@ -52,7 +53,7 @@ const Home: React.FC = () => {
     try {
       if (editingNote) {
         const res = await axios.put(
-          `http://localhost:5000/api/notes/${editingNote._id}`,
+          `${BASEURL}}/notes/${editingNote._id}`,
           { content },
           { withCredentials: true }
         );
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
         );
       } else {
         const res = await axios.post(
-          "http://localhost:5000/api/notes",
+          `${BASEURL}/notes`,
           { content },
           { withCredentials: true }
         );
@@ -80,7 +81,7 @@ const Home: React.FC = () => {
 
   const handleDeleteNote = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${id}`, {
+      await axios.delete(`${BASEURL}/notes/${id}`, {
         withCredentials: true,
       });
       setNotes(notes.filter((note) => note._id !== id));
@@ -90,11 +91,7 @@ const Home: React.FC = () => {
   };
 
   const handleSignOut = async () => {
-    await axios.post(
-      "http://localhost:5000/api/auth/logout",
-      {},
-      { withCredentials: true }
-    );
+    await axios.post(`${BASEURL}/auth/logout`, {}, { withCredentials: true });
     localStorage.removeItem("user");
     navigate("/login");
   };
@@ -104,12 +101,12 @@ const Home: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Logo" />
-          <h1 className="lg:text-4xl md:text-2xl font-medium">Dashboard</h1>
+          <img src={logo} alt="Logo" className="lg:h-[60px]" />
+          <h1 className="lg:text-5xl md:text-2xl font-medium">Dashboard</h1>
         </div>
         <button
           onClick={handleSignOut}
-          className="text-blue-500 hover:underline md:text-xl lg:text-2xl px-4 py-3"
+          className="text-blue-500 hover:underline md:text-xl lg:text-2xl px-4 py-3 bg-stone-100"
         >
           Sign out
         </button>
@@ -117,9 +114,13 @@ const Home: React.FC = () => {
 
       {/* Welcome */}
       {user && (
-        <div className="bg-gray-100 p-4 rounded shadow-sm mb-6 text-center md:text-left">
-          <h2 className="font-semibold text-lg">Welcome, {user.name}!</h2>
-          <p className="text-sm text-gray-700">Email: {user.email}</p>
+        <div className="bg-gray-100 p-4 rounded shadow-sm mb-6 text-center md:text-left lg:h-[100px] ">
+          <h2 className="font-semibold lg:text-3xl md:text-2xl sm:text-2xl mb-3">
+            Welcome, {user.name} !
+          </h2>
+          <p className="lg:text-2xl md:text-0.5 text-gray-700">
+            Email: {user.email}
+          </p>
         </div>
       )}
 
