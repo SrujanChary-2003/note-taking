@@ -1,6 +1,7 @@
 <h1>📝 NoteNest – Full-Stack Note-Taking App</h1>
-A full-stack, responsive note-taking application built with React (TypeScript), Node.js (Express + TypeScript), and MongoDB, supporting Email + OTP authentication and Google Sign-In.
+<p>A full-stack, responsive note-taking application built with React (TypeScript), Node.js (Express + TypeScript), and MongoDB, supporting Email + OTP authentication and Google Sign-In.</p>
 
+<p>
 🌐 Live Preview (Optional)
 
 🔗 [Live Site](https://your-deployment-url.com)
@@ -52,10 +53,10 @@ MongoDB Atlas or local MongoDB
 
 Google Cloud OAuth credentials (Client ID + Secret)
 
+</p>
+<pre>
 📁 Folder Structure
-css
-Copy
-Edit
+
 project-root/
 │
 ├── backend/ ← Express API
@@ -79,6 +80,8 @@ project-root/
 │
 └── README.md
 
+</pre>
+<p>
 ⚙️ Setup Instructions
 📦 Backend Setup
 bash
@@ -86,8 +89,6 @@ bash
 cd backend
 npm install
 Create a .env file inside /backend:
-
-env
 
 PORT=PORT_NUMBER
 MONGO_URI=your_mongo_db_connection_string
@@ -113,16 +114,12 @@ cd frontend
 npm install
 Create .env file inside /frontend:
 
-env
-Copy
-Edit
 VITE_API_BASE_URL=http://localhost:5000
 VITE_GOOGLE_CLIENT_ID=your_google_client_id
 Start the app:
 
 bash
-Copy
-Edit
+
 npm run dev
 📎 Runs at: http://localhost:5173
 
@@ -169,3 +166,5 @@ Dashboard with notes
 Google sign-in
 
 Mobile version
+
+</p>
