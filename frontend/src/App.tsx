@@ -8,6 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route index path="/" element={<Signup />} />
         <Route
           path="/dashboard"
           element={
@@ -16,7 +17,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/signup" element={<Signup />} />
+        {/* <Route path="/signup" element={<Signup />} /> */}
         <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
