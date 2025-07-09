@@ -27,7 +27,7 @@ const Signup = () => {
   const onGetOtp = async (data: FormValues) => {
     setIsLoading(true);
     try {
-      await axios.post(`${BASEURL}/auth/request-otp`, {
+      await axios.post(`${BASEURL}/api/auth/request-otp`, {
         name: data.name,
         dob: data.dob,
         email: data.email,
@@ -45,7 +45,7 @@ const Signup = () => {
   const onSignup = async (data: FormValues) => {
     setIsLoading(true);
     try {
-      const res = await axios.post(`${BASEURL}/auth/signup`, data, {
+      const res = await axios.post(`${BASEURL}/api/auth/signup`, data, {
         withCredentials: true,
       });
       localStorage.setItem("user", JSON.stringify(res.data.user));

@@ -35,7 +35,7 @@ const Home: React.FC = () => {
 
   const fetchNotes = async () => {
     try {
-      const res = await axios.get(`${BASEURL}/notes`, {
+      const res = await axios.get(`${BASEURL}/api/notes`, {
         withCredentials: true,
       });
       setNotes(res.data);
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
     try {
       if (editingNote) {
         const res = await axios.put(
-          `${BASEURL}}/notes/${editingNote._id}`,
+          `${BASEURL}/api/notes/${editingNote._id}`,
           { content },
           { withCredentials: true }
         );
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
         );
       } else {
         const res = await axios.post(
-          `${BASEURL}/notes`,
+          `${BASEURL}/api/notes`,
           { content },
           { withCredentials: true }
         );
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
 
   const handleDeleteNote = async (id: string) => {
     try {
-      await axios.delete(`${BASEURL}/notes/${id}`, {
+      await axios.delete(`${BASEURL}/api/notes/${id}`, {
         withCredentials: true,
       });
       setNotes(notes.filter((note) => note._id !== id));
@@ -91,7 +91,11 @@ const Home: React.FC = () => {
   };
 
   const handleSignOut = async () => {
-    await axios.post(`${BASEURL}/auth/logout`, {}, { withCredentials: true });
+    await axios.post(
+      `${BASEURL}/api/auth/logout`,
+      {},
+      { withCredentials: true }
+    );
     localStorage.removeItem("user");
     navigate("/login");
   };

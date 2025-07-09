@@ -26,7 +26,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `${BASEURL}/auth/signup`,
+        `${BASEURL}/api/auth/signup`,
         {
           email: data.email,
           otp: data.otp,
@@ -54,12 +54,12 @@ const Login = () => {
     setIsLoading(true);
     try {
       const userRes = await axios.get(
-        `${BASEURL}/auth/get-user-by-email?email=${email}`
+        `${BASEURL}/api/auth/get-user-by-email?email=${email}`
       );
       const { name, dob } = userRes.data.user;
 
       await axios.post(
-        `${BASEURL}/auth/request-otp`,
+        `${BASEURL}/api/auth/request-otp`,
         { email, name, dob },
         { withCredentials: true }
       );
