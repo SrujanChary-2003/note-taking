@@ -106,7 +106,7 @@ const Home: React.FC = () => {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-2">
           <img src={logo} alt="Logo" className="lg:h-[60px]" />
-          <h1 className="lg:text-5xl md:text-2xl font-medium">Dashboard</h1>
+          <h1 className="lg:text-3xl md:text-2xl font-medium">Dashboard</h1>
         </div>
         <button
           onClick={handleSignOut}
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
       {/* Welcome */}
       {user && (
         <div className="bg-gray-100 p-4 rounded shadow-sm mb-6 text-center md:text-left lg:h-[100px] ">
-          <h2 className="font-semibold lg:text-3xl md:text-2xl sm:text-2xl mb-3">
+          <h2 className="font-semibold lg:text-2xl md:text-1xl sm:text-1xl mb-3">
             Welcome, {user.name} !
           </h2>
           <p className="lg:text-2xl md:text-0.5 text-gray-700">
