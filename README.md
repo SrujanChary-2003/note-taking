@@ -4,7 +4,7 @@
 <pre>
 🌐 Live Preview (Optional)
 
-🔗 [Live Site] https://note-taking-pearl.vercel.app/login
+🔗 [Live Site] <a href="https://note-taking-pearl.vercel.app/login">View site here</a>
 
 🚀 Features
 ✅ Sign up using Email + OTP (with validation)
