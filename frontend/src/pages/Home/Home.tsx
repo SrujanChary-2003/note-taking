@@ -110,7 +110,7 @@ const Home: React.FC = () => {
         </div>
         <button
           onClick={handleSignOut}
-          className="text-blue-500 hover:underline md:text-xl lg:text-2xl px-4 py-3 bg-stone-100"
+          className="text-blue-500 hover:underline md:text-xl lg:text-1xl px-4 py-3 bg-stone-100"
         >
           Sign out
         </button>
@@ -119,10 +119,10 @@ const Home: React.FC = () => {
       {/* Welcome */}
       {user && (
         <div className="bg-gray-100 p-4 rounded shadow-sm mb-6 text-center md:text-left lg:h-[100px] ">
-          <h2 className="font-semibold lg:text-2xl md:text-1xl sm:text-1xl mb-3">
+          <h2 className="font-semibold lg:text-1xl md:text-1xl sm:text-1xl mb-3">
             Welcome, {user.name} !
           </h2>
-          <p className="lg:text-2xl md:text-0.5 text-gray-700">
+          <p className="lg:text-1xl md:text-0.5 text-gray-700">
             Email: {user.email}
           </p>
         </div>
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
       <div className="flex justify-center md:justify-start mb-6">
         <button
           onClick={handleCreateNote}
-          className="bg-blue-600 hover:bg-blue-700 text-white lg:text-2xl sm:text-xl md:text-2xl px-6 py-2 rounded"
+          className="bg-blue-600 hover:bg-blue-700 text-white lg:text-1xl sm:text-xl md:text-1xl px-6 py-2 rounded"
         >
           Create Note
         </button>
