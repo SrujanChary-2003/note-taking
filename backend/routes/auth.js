@@ -131,7 +131,7 @@ router.post("/signup", async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+        sameSite: "None",
       })
       .json({
         message: "Signup successful",
